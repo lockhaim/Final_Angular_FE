@@ -1,15 +1,27 @@
 import { Injectable } from '@angular/core';
-import {Product} from '../Product'
-import {PRODUCTS} from '../mock-products';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Product } from '../Product';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  private apiURL = 'http://localhost:8000/api/products'
 
-  getProducts(): Product[] {
-      return PRODUCTS;
+  constructor(private http:HttpClient) { }
+
+  getProducts(): Observable<Product[]> {
+      return this.http.get<Product[]>(this.apiURL)
   }
+
+  deleteProduct(product:Product): Observable<Product> {
+      const url =`${this.apiURL}/${product.id}`;
+      return this.http.delete<Product>(url);
+  }
+
 }

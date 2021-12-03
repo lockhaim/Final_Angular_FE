@@ -3,7 +3,6 @@ import {ProductService} from '../../services/product.service'
 import {Product} from '../../Product'
 
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,7 +14,13 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-      this.products = this.productService.getProducts()
+      this.productService.getProducts().subscribe((products) => this.products = products);
   }
 
+  deleteProduct(product: Product){
+      this.productService
+        .deleteProduct(product)
+        .subscribe(
+            () => this.products = this.products.filter( p=> p.id !== product.id));
+  }
 }
