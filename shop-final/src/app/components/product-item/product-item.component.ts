@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Product} from '../../Product'
+import { Product } from '../../Product'
+
 
 
 @Component({
@@ -10,9 +11,14 @@ import {Product} from '../../Product'
 export class ProductItemComponent implements OnInit {
   @Input() 'product': Product
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteItem(){
+      console.log('delete')
   }
 
 }

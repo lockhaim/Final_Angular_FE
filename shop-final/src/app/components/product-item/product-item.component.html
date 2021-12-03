@@ -1,4 +1,8 @@
 <div class='product'>
     <h3>{{product.name}}</h3>
     <p>{{product.quantity}}</p>
+    <p>{{product.price}}</p>
+    <p>{{product.description}}</p>
+    <img src={{product.image}}>
+    <app-button color="red" text="Delete" (btnClick)='deleteItem()'></app-button>
 </div>
