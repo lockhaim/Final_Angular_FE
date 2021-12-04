@@ -23,4 +23,8 @@ export class ProductsComponent implements OnInit {
         .subscribe(
             () => this.products = this.products.filter( p=> p.id !== product.id));
   }
+
+  addProduct(product: Product){
+      console.log(product)
+  }
 }

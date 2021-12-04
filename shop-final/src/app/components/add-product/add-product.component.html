@@ -1,0 +1,13 @@
+<form class='add-form' (ngSubmit)='onSubmit()'>
+    <div class='form-control'>
+        <label for='name'>Product</label>
+        <input type='text' name='name' [(ngModel)]='name' id='name' placeholder="Product Name">
+    </div>
+    <div class='form-control'>
+        <label for='quantity'>Quantity</label>
+        <input type='number' name='quantity' [(ngModel)]='quantity' id='quantity' placeholder="Quantity">
+    </div>
+    <input type='submit' value='Add Product' class='btn btn-block'/>
+
+
+</form>
