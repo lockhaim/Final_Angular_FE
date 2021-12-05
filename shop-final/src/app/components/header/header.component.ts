@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ToggleAddService } from '../../services/toggle-add.service'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Products Delivered Straight To You!';
-  constructor() { }
+  'showAddProduct': boolean = true;
+  'subscription': Subscription;
+
+
+  constructor(private toggleAddService:ToggleAddService) {
+      this.subscription = this.toggleAddService
+        .onToggle()
+        .subscribe(value => this.showAddProduct = value)
+  }
 
   ngOnInit(): void {
   }
 
   toggleAddItem(){
-      console.log('toggle')
+      this.toggleAddService.toggleAddService()
   }
 }

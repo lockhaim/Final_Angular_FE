@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Product} from '../../Product'
-
+import { Product } from '../../Product';
+import { ToggleAddService } from '../../services/toggle-add.service';
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-add-product',
@@ -17,7 +18,14 @@ export class AddProductComponent implements OnInit {
   'description': string;
   'image': string;
 
-  constructor() { }
+  'subscription':Subscription;
+  'showAddProduct': boolean;
+
+  constructor(private toggleAddService: ToggleAddService) {
+      this.subscription = this.toggleAddService
+        .onToggle()
+        .subscribe(value => this.showAddProduct = value)
+  }
 
   ngOnInit(): void {
   }
