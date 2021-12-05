@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   addProduct(product:Product): Observable<Product> {
-      return this.http.post<Product>(this.apiURL, product, httpOptions);
+      return this.http.post<Product>(this.apiURL, product);
   }
 
 }

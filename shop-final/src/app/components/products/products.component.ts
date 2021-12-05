@@ -25,6 +25,6 @@ export class ProductsComponent implements OnInit {
   }
 
   addProduct(product: Product){
-      console.log(product)
+      this.productService.addProduct(product).subscribe((product) => this.products.push(product));
   }
 }
