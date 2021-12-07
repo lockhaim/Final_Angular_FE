@@ -1,8 +1,29 @@
 <div class='product'>
     <h3>{{product.name}}</h3>
+    <div>
+      <label for="name">Product name: </label>
+      <input id="name" [(ngModel)]="product.name" placeholder="name">
+    </div>
     <p>{{product.quantity}}</p>
+    <div>
+      <label for="quantity">Product name: </label>
+      <input id="quantity" [(ngModel)]="product.quantity" placeholder="quantity">
+    </div>
     <p>{{product.price}}</p>
+    <div>
+      <label for="price">Product name: </label>
+      <input id="price" [(ngModel)]="product.price" placeholder="price">
+    </div>
     <p>{{product.description}}</p>
+    <div>
+      <label for="description">Product name: </label>
+      <input id="description" [(ngModel)]="product.description" placeholder="description">
+    </div>
     <img src={{product.image}}>
+    <div>
+      <label for="image">Product name: </label>
+      <input id="image" [(ngModel)]="product.image" placeholder="image">
+    </div>
+    <app-button color="green" text="Edit" (click)='updateProduct()'>Edit</app-button>
     <app-button color="red" text="Delete" (click)='onDelete()'></app-button>
 </div>
