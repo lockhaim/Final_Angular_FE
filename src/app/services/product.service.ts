@@ -11,7 +11,7 @@ import { Product } from '../Product';
 })
 export class ProductService {
 
-  private apiURL = 'http://localhost:8000/api/products'
+  private apiURL = 'http://il-final-be.herokuapp.com/api/products'
 
   constructor(private http:HttpClient) { }
 
